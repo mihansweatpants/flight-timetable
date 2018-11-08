@@ -26,7 +26,6 @@ class App extends PureComponent {
 
     fetchFlights = async (category = this.state.activeCategory) => {
         const fetchedFlights = await fetchJson(`/flights?type=${category}`);
-        console.log({ fetchedFlights })
 
         this.setState({
             flights: fetchedFlights,

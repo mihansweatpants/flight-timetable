@@ -1,5 +1,5 @@
-require('dotenv').config();
 const express = require('express');
+const path = require('path');
 const stub = require('./stub.json');
 
 const app = express();
@@ -37,7 +37,9 @@ app.get('/flights', async (req, res) => {
     return res.status(200).json(flights);
 });
 
+app.use(express.static(path.join(__dirname, 'build')));
+
 const port = process.env.PORT || 3001;
 app.listen(port, () =>
-    console.log(`${process.env.NODE_ENV} api listening on port ${port}`)
+    console.log(`${process.env.NODE_ENV === 'development' ? 'api' : 'app'} listening on port ${port}`)
 );

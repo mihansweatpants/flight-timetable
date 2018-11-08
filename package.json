@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "dotenv": "^6.1.0",
     "express": "^4.16.4",
-    "isomorphic-fetch": "^2.2.1",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-scripts": "2.0.5",
@@ -13,13 +11,9 @@
   },
   "proxy": "http://localhost:3001",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "server": "node api.js",
-    "server:dev": "nodemon api.js",
-    "start:prod": "yarn server | yarn start"
+    "start": "yarn build && node server.js",
+    "dev": "nodemon server.js | react-scripts start",
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
